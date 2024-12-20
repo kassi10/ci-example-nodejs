@@ -1,0 +1,41 @@
+name: CI
+
+on:
+   
+    pull_request:
+        branches:
+            - develop
+
+jobs:
+  run-ci:
+        name: Run CI
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: '22'
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Run tests
+          run: npm test
+
+      
+        # - uses: actions/checkout@v4
+        #   with:
+        #     fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+        # - uses: sonarsource/sonarqube-scan-action@v4
+        #   env:
+        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        # - name: Run Sonar
+        #   uses: sonarsource/sonarcloud-github-action@master
+        #   env:
+        #     # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        #     # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
