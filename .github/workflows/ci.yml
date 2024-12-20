@@ -8,8 +8,8 @@ on:
     branches:
       - develop
 jobs:
-  run-ci:
-        name: Run CI
+   build:
+        name: ci-run-test
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
