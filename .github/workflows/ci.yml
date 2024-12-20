@@ -1,4 +1,7 @@
 name: CI
+permissions:
+  contents: read
+  statuses: write
 
 on:
   push:
@@ -8,8 +11,8 @@ on:
     branches:
       - develop
 jobs:
-  run-ci:
-        name: Run CI
+   run-ci-test:
+        name: ci-run-test
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
