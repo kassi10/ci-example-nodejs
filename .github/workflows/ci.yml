@@ -28,8 +28,6 @@ jobs:
 
         - name: Run tests
           run: npm test
-
-      
         - name: SonarQube Scan
           uses: SonarSource/sonarqube-scan-action@v4
           env:
